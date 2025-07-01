@@ -39,43 +39,29 @@
 
     #letter {
       position: relative;
-      background: #f8f1e8;
+      background: #f0e5de;
       max-width: 600px;
       margin: 0 auto;
       font-size: 18px;
       line-height: 1.6;
       white-space: pre-line;
-      /* animation removed to fix rose background visibility */
       padding: 30px 40px;
       border-radius: 10px;
       box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
       overflow: hidden;
       display: none;
-    }
+      color: #4a3c36;
 
-    #letter::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 300px;
-      height: 300px;
-      background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQ4IiBoZWlnaHQ9IjY0OCIgdmlld0JveD0iMCAwIDY0OCA2NDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTQ2MC4xNTMgMzQ0LjY3NEM0NDguMzI4IDM1OC4wMjUgNDI2LjE5IDM2Ni44MzMgNDA2Ljg2MyAzNjcuMjA0QzQxNi43MzMgMzQ3LjY2NiA0MjMuMzI4IDMyNC4wMDcgNDIzLjMyOCAzMDAuMDA1QzQyMy4zMjggMjU4LjEyMSA0MTQuMzQ4IDIxOC43NTggMzk4LjEzMiAxODYuMDA5QzQwMC4yNjkgMTg1LjQ2MiA0MDIuMzc4IDE4NS4wNTUgNDA0LjQ2OSAxODQuNzcyQzQzNi4xMTggMTc2LjQ3OCA0NjAuMTUzIDE5Ni4yNDcgNDYwLjE1MyAzNDQuNjc0WiIgZmlsbD0icmVkIi8+PC9zdmc+') no-repeat center center;
-      background-size: contain;
-      opacity: 0.08;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: 0;
+      /* Repeating rose outline pattern background */
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23707070' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2C10 5 5 5 5 10c0 3 5 5 7 7s7-1 7-5-5-7-7-10z'/></svg>");
+      background-repeat: repeat;
+      background-size: 40px 40px;
+      background-position: center center;
     }
 
     #letter p {
       position: relative;
       z-index: 1;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
     }
 
     audio {
