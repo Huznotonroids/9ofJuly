@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Our 2-Year Anniversary</title>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -38,13 +38,39 @@
     }
 
     #letter {
-      display: none;
+      position: relative;
+      background: #f8f1e8;
       max-width: 600px;
       margin: 0 auto;
       font-size: 18px;
       line-height: 1.6;
       white-space: pre-line;
       animation: typing 3s steps(60, end);
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: none;
+    }
+
+    #letter::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 250px;
+      height: 250px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Rose_Silhouette.svg/512px-Rose_Silhouette.svg.png') no-repeat center center;
+      background-size: contain;
+      opacity: 0.07;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #letter p {
+      position: relative;
+      z-index: 1;
     }
 
     @keyframes typing {
@@ -55,6 +81,7 @@
     audio {
       display: block;
       margin: 20px auto 0;
+      outline: none;
     }
   </style>
 </head>
@@ -68,12 +95,12 @@
 
         [Insert your full letter here later. I'll wait. 💌]
 
-        Yours forever,
+        Yours forever,<br/>
         [Your Name]
       </p>
     </div>
     <audio id="bgMusic" controls loop>
-      <source src="your-music.mp3" type="audio/mpeg">
+      <source src="your-music.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
   </div>
