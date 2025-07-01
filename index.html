@@ -15,24 +15,22 @@
       align-items: center;
       height: 100vh;
       overflow: hidden;
-
+      background-color: #f8f1e8; /* fallback background */
       position: relative;
       z-index: 0;
-      background-color: #f8f1e8;
-      background-image: url('images/rose1.jpg');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-      background-blend-mode: lighten;
-      opacity: 0.5;
     }
 
+    /* Background image with blur and opacity */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: white;
-      opacity: 0.85; /* Adjust this for lightness */
+      background-image: url('images/rose1.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      filter: blur(8px);
+      opacity: 0.4;
       z-index: -1;
       pointer-events: none;
     }
@@ -166,8 +164,8 @@
       <div class="side-images" id="left-images">
         <img src="images/7.jpg" alt="Left pic 1" />
         <img src="images/7.jpg" alt="Left pic 2" />
-        <img src="images/7.jpg" alt="Left pic 3" />
-        <img src="images/1.jpg" alt="Left pic 4" />
+        <img src="images/pic3.jpg" alt="Left pic 3" />
+        <img src="images/pic4.jpg" alt="Left pic 4" />
       </div>
 
       <div id="letter">
@@ -182,10 +180,10 @@
       </div>
 
       <div class="side-images" id="right-images">
-        <img src="images/1.jpg" alt="Right pic 1" />
-        <img src="images/1.jpg" alt="Right pic 2" />
-        <img src="images/1.jpg" alt="Right pic 3" />
-        <img src="images/1.jpg" alt="Right pic 4" />
+        <img src="images/pic5.jpg" alt="Right pic 1" />
+        <img src="images/pic6.jpg" alt="Right pic 2" />
+        <img src="images/pic7.jpg" alt="Right pic 3" />
+        <img src="images/pic8.jpg" alt="Right pic 4" />
       </div>
     </div>
 
