@@ -41,6 +41,10 @@
       display: none;
       max-width: 600px;
       margin: 0 auto;
+      padding: 20px 30px;
+      background-color: #fff9f3;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       font-size: 18px;
       line-height: 1.6;
       white-space: pre-line;
@@ -52,7 +56,7 @@
       to { width: 100% }
     }
 
-    audio, video {
+    audio {
       display: block;
       margin: 20px auto 0;
       max-width: 600px;
@@ -77,27 +81,20 @@
     </div>
 
     <audio id="bgMusic" controls loop>
-      <source src="PAAS_Hasan_Raheem_Cover__Voice_Audio.m4a" type="audio/mpeg" />
+      <source src="your-music.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
-
-    <video id="bgVideo" controls loop>
-      <source src="your-video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
   </div>
 
   <script>
     const openButton = document.getElementById('openButton');
     const letter = document.getElementById('letter');
     const music = document.getElementById('bgMusic');
-    const video = document.getElementById('bgVideo');
 
     openButton.addEventListener('click', () => {
       openButton.style.display = 'none';
       letter.style.display = 'block';
       music.play();
-      video.play();
     });
   </script>
 </body>
