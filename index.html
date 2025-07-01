@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our 2-Year Anniversary</title>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -52,9 +52,12 @@
       to { width: 100% }
     }
 
-    audio {
+    audio, video {
       display: block;
       margin: 20px auto 0;
+      max-width: 600px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
     }
   </style>
 </head>
@@ -72,21 +75,29 @@
         [Your Name]
       </p>
     </div>
-    <audio id="bgMusic" controls loop>
-      <source src="your-music.mp3" type="audio/mpeg">
+
+    <audio id="bgMusic" loop>
+      <source src="your-music.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
+
+    <video id="bgVideo" controls loop>
+      <source src="your-video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
   </div>
 
   <script>
     const openButton = document.getElementById('openButton');
     const letter = document.getElementById('letter');
     const music = document.getElementById('bgMusic');
+    const video = document.getElementById('bgVideo');
 
     openButton.addEventListener('click', () => {
       openButton.style.display = 'none';
       letter.style.display = 'block';
       music.play();
+      video.play();
     });
   </script>
 </body>
