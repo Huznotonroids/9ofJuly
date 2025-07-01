@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Our 2-Year Anniversary</title>
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
   <style>
@@ -37,10 +37,36 @@
       background-color: #e1dcd4;
     }
 
+    #contentWrapper {
+      display: none; /* hidden initially */
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .side-images {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .side-images img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .side-images img:hover {
+      transform: scale(1.1);
+    }
+
     #letter {
-      display: none;
       max-width: 600px;
-      margin: 0 auto;
       padding: 20px 30px;
       background-color: #fff9f3;
       border-radius: 12px;
@@ -63,21 +89,56 @@
       border-radius: 8px;
       box-shadow: 0 0 10px #ccc;
     }
+
+    /* Responsive tweak - stack images on small screens */
+    @media (max-width: 900px) {
+      #contentWrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .side-images {
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .side-images img {
+        width: 60px;
+        height: 60px;
+      }
+    }
   </style>
 </head>
 <body>
   <div id="container">
     <button id="openButton">Click to Open Your Letter 💌</button>
-    <div id="letter">
-      <p>
-        <!-- Your letter goes here -->
-        My dearest love,
 
-        [Insert your full letter here later. I'll wait. 💌]
+    <div id="contentWrapper">
+      <div class="side-images" id="left-images">
+        <img src="pic1.jpg" alt="Left pic 1" />
+        <img src="pic2.jpg" alt="Left pic 2" />
+        <img src="pic3.jpg" alt="Left pic 3" />
+        <img src="pic4.jpg" alt="Left pic 4" />
+      </div>
 
-        Yours forever,
-        [Your Name]
-      </p>
+      <div id="letter">
+        <p>
+          My dearest love,
+
+          [Insert your full letter here later. I'll wait. 💌]
+
+          Yours forever,<br />
+          [Your Name]
+        </p>
+      </div>
+
+      <div class="side-images" id="right-images">
+        <img src="pic5.jpg" alt="Right pic 1" />
+        <img src="pic6.jpg" alt="Right pic 2" />
+        <img src="pic7.jpg" alt="Right pic 3" />
+        <img src="pic8.jpg" alt="Right pic 4" />
+      </div>
     </div>
 
     <audio id="bgMusic" controls loop>
@@ -88,12 +149,12 @@
 
   <script>
     const openButton = document.getElementById('openButton');
-    const letter = document.getElementById('letter');
+    const contentWrapper = document.getElementById('contentWrapper');
     const music = document.getElementById('bgMusic');
 
     openButton.addEventListener('click', () => {
       openButton.style.display = 'none';
-      letter.style.display = 'block';
+      contentWrapper.style.display = 'flex';
       music.play();
     });
   </script>
