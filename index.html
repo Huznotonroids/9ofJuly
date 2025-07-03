@@ -27,6 +27,28 @@
       pointer-events: none;
     }
 
+    #audio-container {
+      max-width: 600px;
+      margin: 20px auto 40px;
+      text-align: center;
+      color: #5a4a3e;
+      font-size: 16px;
+      user-select: none;
+    }
+
+    #audio-container p {
+      margin-bottom: 8px;
+    }
+
+    audio {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
     #loader {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -36,9 +58,7 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      font-family: 'Special Elite', monospace;
       font-size: 24px;
-      color: #444;
       transition: opacity 1s ease, visibility 1s ease;
     }
 
@@ -56,8 +76,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      overflow: hidden;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     }
 
     #heart-bar span {
@@ -81,7 +100,6 @@
       margin: 0 auto;
       padding: 40px 20px;
       gap: 30px;
-      flex-wrap: nowrap;
     }
 
     .side-images {
@@ -97,7 +115,7 @@
       height: 80px;
       object-fit: cover;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       transition: transform 0.3s ease;
     }
@@ -117,22 +135,26 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       font-size: 18px;
       line-height: 1.6;
-      white-space: pre-line;
     }
 
-    audio {
-      display: block;
-      margin: 30px auto;
-      max-width: 600px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #ccc;
+    .typewriter-intro {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 0.15em solid transparent;
+      width: 0;
+      animation: typing 4s steps(80, end) forwards;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
     }
 
     @media (max-width: 900px) {
       .page-wrapper {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
       }
 
       .side-images {
@@ -147,7 +169,6 @@
 
       #letter {
         max-height: none;
-        overflow-y: visible;
       }
     }
 
@@ -155,8 +176,7 @@
       display: none;
       position: fixed;
       z-index: 1000;
-      left: 0;
-      top: 0;
+      top: 0; left: 0;
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.8);
@@ -169,7 +189,6 @@
       max-height: 90%;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-      cursor: pointer;
       animation: fadeIn 0.3s ease;
     }
 
@@ -180,10 +199,16 @@
   </style>
 </head>
 <body>
+  <div id="audio-container">
+    <p>Play the audio before reading for a more romantic experience 😼</p>
+    <audio id="bgMusic" autoplay loop controls>
+      <source src="your-music.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
 
-  <!-- 💌 Loader -->
   <div id="loader">
-    <div id="loader-text">Sealing your love letter... 💌</div>
+    <div>Sealing your love letter... 💌</div>
     <div id="heart-bar">
       <span>💗</span>
       <span>💖</span>
@@ -191,69 +216,55 @@
     </div>
   </div>
 
-  <!-- 🌸 Main Content -->
   <div class="page-wrapper">
-    <!-- Left Side Images -->
     <div class="side-images">
-      <img src="images/7.jpg" alt="Left pic 1" />
-      <img src="images/pic2.jpg" alt="Left pic 2" />
-      <img src="images/pic3.jpg" alt="Left pic 3" />
-      <img src="images/7.jpg" alt="Left pic 4" />
+      <img src="images/1.jpg" alt="Pic 1" />
+      <img src="images/2.jpg" alt="Pic 2" />
+      <img src="images/3.jpg" alt="Pic 3" />
+      <img src="images/4.jpg" alt="Pic 4" />
     </div>
 
-    <!-- The Letter -->
     <div id="letter">
+      <p class="typewriter-intro">My dearest love,</p>
       <p>
-        My dearest love,
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare, tellus sed tincidunt feugiat, metus justo convallis augue, in eleifend nisl turpis sed nulla.
 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed ornare, tellus sed tincidunt feugiat, metus justo convallis augue, in eleifend nisl turpis sed nulla.
+        Curabitur in magna ac neque feugiat rutrum. Vestibulum rhoncus feugiat dolor, sed fringilla nulla eleifend sed.
 
-        Curabitur in magna ac neque feugiat rutrum. Vestibulum rhoncus feugiat dolor, sed fringilla nulla eleifend sed. Nam viverra ante quis lectus egestas facilisis. Quisque gravida urna ut turpis tempus, nec imperdiet risus volutpat. Curabitur ut risus vitae metus fermentum pretium.
+        Nam viverra ante quis lectus egestas facilisis. Quisque gravida urna ut turpis tempus, nec imperdiet risus volutpat.
 
-        Praesent nec magna in justo iaculis hendrerit. Aliquam erat volutpat. Proin ac nulla mi. Donec malesuada, elit a gravida tristique, nibh leo vehicula elit, a gravida nisi leo at magna.
+        Maecenas nec magna sed neque blandit cursus. Phasellus sed nulla convallis, interdum neque nec, vulputate mi.
 
-        Maecenas nec magna sed neque blandit cursus. Phasellus sed nulla convallis, interdum neque nec, vulputate mi. Fusce vel arcu a quam porttitor fermentum.
-
-        Yours forever,
+        Yours forever,  
         [Your Name]
       </p>
     </div>
 
-    <!-- Right Side Images -->
     <div class="side-images">
-      <img src="images/7.jpg" alt="Right pic 1" />
-      <img src="images/pic6.jpg" alt="Right pic 2" />
-      <img src="images/pic7.jpg" alt="Right pic 3" />
-      <img src="images/7.jpg" alt="Right pic 4" />
+      <img src="images/5.jpg" alt="Pic 5" />
+      <img src="images/6.jpg" alt="Pic 6" />
+      <img src="images/7.jpg" alt="Pic 7" />
+      <img src="images/8.jpg" alt="Pic 8" />
     </div>
   </div>
 
-  <!-- 🎶 Music -->
-  <audio id="bgMusic" autoplay loop>
-    <source src="your-music.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- 📸 Modal for Clicked Images -->
   <div id="modal">
-    <img id="modal-img" src="" alt="Expanded pic" />
+    <img id="modal-img" src="" alt="Expanded" />
   </div>
 
   <script>
+    const loader = document.getElementById('loader');
     const modal = document.getElementById('modal');
     const modalImg = document.getElementById('modal-img');
     const music = document.getElementById('bgMusic');
 
     window.addEventListener('load', () => {
-      const loader = document.getElementById('loader');
       setTimeout(() => {
         loader.classList.add('fade-out');
-      }, 5000); // ⏱ 5 seconds
+      }, 5000);
 
       music.muted = false;
-      music.play().catch(() => {
-        console.log('Autoplay blocked');
-      });
+      music.play().catch(() => console.log('Autoplay blocked'));
     });
 
     document.querySelectorAll('.side-images img').forEach(img => {
@@ -267,7 +278,6 @@
     modal.addEventListener('click', () => {
       modal.style.display = 'none';
       modalImg.src = '';
-      modalImg.alt = '';
     });
   </script>
 </body>
