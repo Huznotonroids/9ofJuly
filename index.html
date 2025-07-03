@@ -27,7 +27,6 @@
       pointer-events: none;
     }
 
-    /* Loader */
     #loader {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -74,7 +73,6 @@
       50% { transform: translateY(-10px); }
     }
 
-    /* Main Layout */
     .page-wrapper {
       display: flex;
       justify-content: center;
@@ -111,6 +109,8 @@
     #letter {
       flex: 1;
       max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
       padding: 20px 30px;
       background-color: #fff9f3;
       border-radius: 12px;
@@ -118,12 +118,6 @@
       font-size: 18px;
       line-height: 1.6;
       white-space: pre-line;
-      animation: typing 3s steps(60, end);
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
     }
 
     audio {
@@ -149,6 +143,11 @@
       .side-images img {
         width: 60px;
         height: 60px;
+      }
+
+      #letter {
+        max-height: none;
+        overflow-y: visible;
       }
     }
 
@@ -182,7 +181,7 @@
 </head>
 <body>
 
-  <!-- Loader -->
+  <!-- 💌 Loader -->
   <div id="loader">
     <div id="loader-text">Sealing your love letter... 💌</div>
     <div id="heart-bar">
@@ -192,74 +191,50 @@
     </div>
   </div>
 
-  <!-- Main Content -->
+  <!-- 🌸 Main Content -->
   <div class="page-wrapper">
+    <!-- Left Side Images -->
     <div class="side-images">
       <img src="images/7.jpg" alt="Left pic 1" />
       <img src="images/pic2.jpg" alt="Left pic 2" />
-      <img src="images/7.jpg" alt="Left pic 3" />
+      <img src="images/pic3.jpg" alt="Left pic 3" />
       <img src="images/7.jpg" alt="Left pic 4" />
     </div>
 
+    <!-- The Letter -->
     <div id="letter">
       <p>
         My dearest love,
 
-        Time stopped ticking one day. Stars fell too. The sun didn’t rise one morning and the moon didn’t shine one night.
-But my heart kept beating a single rhythm. My heart kept beating for you.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed ornare, tellus sed tincidunt feugiat, metus justo convallis augue, in eleifend nisl turpis sed nulla.
 
-In the passages of time, on every wall and every corner touched by the past, I find traces of us. Not lost traces, not fossils.
-Traces of who we are, traces of our love, etched into each other. Footprints in the sand, except the sand is a rock, and our traces lay burned into them for eternity.
- 
-It is a maze, this path of time, easy to get lost in. But the traces of our love illuminate our path. We follow them back, hand in hand, back to the start. 
-And there we are. Held together by the strings of time, wrapped around each other in a silent embrace. There’s nothing around, not even the ticking of time. Time has stopped and stars have fallen but my heart has not and your eyes shine back at me with the light of a thousand suns.
-Time may cease but my love will not.
-The sun may not rise but everytime I look at you my soul does, still.
-The moon may not shine but your eyes always will.
+        Curabitur in magna ac neque feugiat rutrum. Vestibulum rhoncus feugiat dolor, sed fringilla nulla eleifend sed. Nam viverra ante quis lectus egestas facilisis. Quisque gravida urna ut turpis tempus, nec imperdiet risus volutpat. Curabitur ut risus vitae metus fermentum pretium.
 
-If time were a river, with an endless flow, our love would be the boat that would keep us afloat. If time were the vast, open sky, our love gave us wings so we could fly.
+        Praesent nec magna in justo iaculis hendrerit. Aliquam erat volutpat. Proin ac nulla mi. Donec malesuada, elit a gravida tristique, nibh leo vehicula elit, a gravida nisi leo at magna.
 
-But time is neither, it has stopped now. The Earth has stopped spinning, the river doesn’t flow now.
+        Maecenas nec magna sed neque blandit cursus. Phasellus sed nulla convallis, interdum neque nec, vulputate mi. Fusce vel arcu a quam porttitor fermentum.
 
-A question haunts me in the dark. 
-What are we then? What are we, if not for the passing of time?
-
-So I follow the traces, onwards yet. Through tunnels of time, dimly lit. 
-And my answer awaits in every step I take, every trace of us, is a living memory.
-
-I see it now, what we are. We are souls unbound, unchained by time. Time could stop and clocks could cease but our souls shall find their way. 
-Locked in an embrace not by the strings of time but by the very essence of our love. So time could stop and not exist but my heart will keep on beating.
-
-Time could stop and not exist but my love for you will not.
-
-
-In every fallen star, in every night sky dome,
-Time has stopped, so in eternity we found home.
-
-The flow of time has surely stopped but we, my love, will not. 
-
-        [Insert your full letter here later. I'll wait. 💌]
-
-        Yours forever,<br />
+        Yours forever,
         [Your Name]
       </p>
     </div>
 
+    <!-- Right Side Images -->
     <div class="side-images">
       <img src="images/7.jpg" alt="Right pic 1" />
       <img src="images/pic6.jpg" alt="Right pic 2" />
       <img src="images/pic7.jpg" alt="Right pic 3" />
-      <img src="images/pic8.jpg" alt="Right pic 4" />
+      <img src="images/7.jpg" alt="Right pic 4" />
     </div>
   </div>
 
-  <!-- Audio -->
+  <!-- 🎶 Music -->
   <audio id="bgMusic" autoplay loop>
     <source src="your-music.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Image Modal -->
+  <!-- 📸 Modal for Clicked Images -->
   <div id="modal">
     <img id="modal-img" src="" alt="Expanded pic" />
   </div>
@@ -270,7 +245,10 @@ The flow of time has surely stopped but we, my love, will not.
     const music = document.getElementById('bgMusic');
 
     window.addEventListener('load', () => {
-      document.getElementById('loader').classList.add('fade-out');
+      const loader = document.getElementById('loader');
+      setTimeout(() => {
+        loader.classList.add('fade-out');
+      }, 5000); // ⏱ 5 seconds
 
       music.muted = false;
       music.play().catch(() => {
